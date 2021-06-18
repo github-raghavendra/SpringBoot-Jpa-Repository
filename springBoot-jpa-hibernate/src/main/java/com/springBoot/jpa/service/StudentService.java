@@ -49,4 +49,36 @@ public class StudentService {
 		return students;
 	}
 	
+	public void getAndUpdate() {
+		
+		Student student = studentRepository.getById(1l);
+		Guide guide = student.getGuide();
+		guide.setFirstName("DeshRaj Singh");
+		guide.setLastName("Kiran");
+		studentRepository.save(student);
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

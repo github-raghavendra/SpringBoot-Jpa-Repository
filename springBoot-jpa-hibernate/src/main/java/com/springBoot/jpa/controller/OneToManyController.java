@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,31 +18,43 @@ import com.springBoot.jpa.service.GuideService;
 import com.springBoot.jpa.service.StudentService;
 
 @RestController
-public class OneToManyTestController {
+public class OneToManyController {
 
 	@Autowired
 	private StudentService studentService;
-	
+
 	@Autowired
 	private GuideService guideService;
 
 	@GetMapping("/t1")
-	public ResponseEntity<List<Student>> test1() {
+	public ResponseEntity<List<Student>> saveStudent() {
+		
+		//getting List<Student> from service
 		List<Student> students = studentService.save();
+
+		//Preparing Response Header for the client
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("headerKey", "headerValue");
-
+		
+		//Making URI for getting saved resource
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+		
 		return ResponseEntity.created(location).headers(responseHeaders).allow(HttpMethod.GET).body(students);
+		
 	}
-	
+
 	@GetMapping("/t2")
-	public ResponseEntity<Guide> test2() {
+	public ResponseEntity<Guide> saveGuide() {
+		
+		//Getting Guide object from the database
 		Guide guide = guideService.save();
+		
+		//Preparing Response Header for the client
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("headerKey", "headerValue");
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+		
 		return ResponseEntity.created(location).headers(responseHeaders).body(guide);
 	}
 }
