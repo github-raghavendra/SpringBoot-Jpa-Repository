@@ -24,8 +24,10 @@ public class User {
 	@Column(name="id", nullable = false, updatable = false)
 	private Long id;
 	
+	@Column(unique = true)
 	private String userId;
 	
+	@Column(unique = true)
 	private String username;
 	
 	private String password;
