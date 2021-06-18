@@ -30,6 +30,9 @@ public class ShoppingCart {
 	@OneToMany(mappedBy="shoppingCart", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<CartItem> cartItems; //name should be cartItems
+	
+	@OneToMany(mappedBy="shoppingCart", cascade=CascadeType.ALL)
+	private List<BookToShoppingCart> bookToShoppingCartList;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;

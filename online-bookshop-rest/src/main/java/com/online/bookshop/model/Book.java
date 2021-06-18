@@ -49,7 +49,6 @@ public class Book {
 	
 	
 	@OneToMany(mappedBy = "book")
-	@JsonIgnore
 	private List<BookToShoppingCart> bookToShoppingCartList;
 	
 }

@@ -32,9 +32,9 @@ public class CartItem {
 	@OneToOne
 	private Book book;
 	
-	@OneToMany(mappedBy = "cartItem")
-	@JsonIgnore
-	private List<BookToShoppingCart> bookToShoppingCartList;
+	//@OneToMany(mappedBy = "cartItem")
+	//@JsonIgnore
+	//private List<BookToShoppingCart> bookToShoppingCartList;
 	
 	@ManyToOne
 	@JoinColumn(name="shopping_cart_id")
