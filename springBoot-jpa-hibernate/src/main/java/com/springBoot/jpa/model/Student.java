@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -25,7 +27,7 @@ public class Student {
 	private Integer age;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@JsonIgnore // Not send in response because each student has a guide.
+	@JsonIgnore // Not send in response because each student has a guide.
 	private Guide guide;
 
 }

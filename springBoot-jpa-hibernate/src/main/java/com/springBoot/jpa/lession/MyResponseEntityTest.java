@@ -36,8 +36,8 @@ class MyResponseEntity<T> {
 
 public class MyResponseEntityTest {
 
-	public static void main(String[] args) {
-		MyResponseEntity<Object> myResponseEntity = MyResponseEntity.created(null).myheaders().myBody(null);
-		System.out.println(myResponseEntity);
-	}
+//	public static void main(String[] args) {
+//		MyResponseEntity<Object> myResponseEntity = MyResponseEntity.created(null).myheaders().myBody(null);
+//		System.out.println(myResponseEntity);
+//	}
 }

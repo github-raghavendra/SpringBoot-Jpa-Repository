@@ -49,13 +49,14 @@ public class StudentService {
 		return students;
 	}
 	
-	public void getAndUpdate() {
+	public Student getAndUpdate() {
 		
 		Student student = studentRepository.getById(1l);
 		Guide guide = student.getGuide();
-		guide.setFirstName("DeshRaj Singh");
-		guide.setLastName("Kiran");
-		studentRepository.save(student);
+		guide.setFirstName("DeshRaj");
+		guide.setLastName("Singh Kiran");
+		Student savedStudent = studentRepository.save(student);
+		return savedStudent;
 		
 	}
 	

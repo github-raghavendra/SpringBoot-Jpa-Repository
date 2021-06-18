@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,7 +41,7 @@ public class OneToManyController {
 		return ResponseEntity.created(location).headers(responseHeaders).allow(HttpMethod.GET).body(students);
 		
 	}
-
+	
 	@GetMapping("/t2")
 	public ResponseEntity<Guide> saveGuide() {
 		
@@ -57,4 +56,26 @@ public class OneToManyController {
 		
 		return ResponseEntity.created(location).headers(responseHeaders).body(guide);
 	}
+	
+	@GetMapping("/t3")
+	public ResponseEntity<Student> getAndUpdateGuide(){
+		Student student = studentService.getAndUpdate();
+		return ResponseEntity.ok().body(student);
+	}
+	
+	@GetMapping("/t4")
+	public ResponseEntity<List<Student>> getAllStudentsByGuide(){
+		List<Student> students = guideService.getStudentByGuide();
+		return ResponseEntity.ok().body(students);
+		
+	}
+	
+	@GetMapping("/t5")
+	public ResponseEntity<Student> getAndUpdateStudent(){
+		//guideService.
+		//return ResponseEntity.ok().body(student);
+		return null;
+	}
+	
+	
 }

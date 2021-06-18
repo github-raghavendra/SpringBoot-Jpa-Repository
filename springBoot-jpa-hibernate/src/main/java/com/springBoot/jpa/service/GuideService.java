@@ -50,5 +50,32 @@ public class GuideService {
 		return savedGuide;
 
 	}
+	
+	public List<Student> getStudentByGuide(){
+		
+		Guide guide = guideRepository.getById(1L);
+		List<Student> students = guide.getStudents();
+		return students;
+	}
+	
+	// inverse end
+	public void getGuideAndUpdateStudent() {
+		Guide guide = guideRepository.getById(1L);
+		List<Student> students = guide.getStudents();
+		
+	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
