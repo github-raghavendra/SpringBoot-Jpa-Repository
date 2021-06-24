@@ -3,6 +3,8 @@ package com.online.bookshop.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.online.bookshop.helper.UserHelper;
-import com.online.bookshop.model.ShippingAddress;
 import com.online.bookshop.model.User;
 import com.online.bookshop.model.UserShipping;
 import com.online.bookshop.service.UserService;
@@ -42,7 +43,7 @@ public class ShopController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<User> createNewUser(@RequestBody User user){
+	public ResponseEntity<User> createNewUser(@Valid @RequestBody User user){
 		return null;
 	}
 	
@@ -84,6 +85,17 @@ public class ShopController {
 		return ResponseEntity.ok().body(allUserShippings);
 		
 	}
+	
+	
+	@GetMapping("/userPayment1")
+	public ResponseEntity<List<UserShipping>> getUserPayment1() {
+		
+		String userId = "c1";
+		List<UserShipping> allUserShippings = userService.getAllUserShippings(userId);
+		return ResponseEntity.ok().body(allUserShippings);
+		
+	}
+	
 	
 }
 

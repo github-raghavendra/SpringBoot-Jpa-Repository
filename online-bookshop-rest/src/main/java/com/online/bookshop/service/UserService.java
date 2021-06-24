@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.online.bookshop.dao.UserRepository;
 import com.online.bookshop.dao.UserShippingRepository;
 import com.online.bookshop.model.User;
+import com.online.bookshop.model.UserPayment;
 import com.online.bookshop.model.UserShipping;
 
 import lombok.extern.slf4j.Slf4j;
@@ -50,11 +51,15 @@ public class UserService {
 	public List<UserShipping> getAllUserShippings(String userId) {
 		Optional<User> optional = userRepository.findByUserId(userId);
 		User user = optional.get();
-		List<UserShipping> userShippings = user.getUserShippingList();
-		return userShippings;
+		//List<UserShipping> userShippings = user.getUserShippingList();
+		return null;
 		
 	}
 	
+	public UserPayment addNewUserPayment(String userId, UserPayment userPayment) {
+		
+		return null;
+	}
 	
 }
 
